@@ -61,5 +61,7 @@ https://product-importer-production-5616.up.railway.app/
 ```
 
 Note - 
-It is deployed on the Railway platform.
-In my code, I save the uploaded CSV in a folder and then use it for celery and other places where the CSV is required. But, since the Railway deployment platform free version doesn't support the use of shared volume, the deployed project won't work 100%. So, for 100% working, please run locally in your system for perfect output, i.e the use of celery and redis in my project.
+It is deployed on the Railway platform. <br>
+In my code, I save the uploaded CSV in a folder and then use it for Celery and other places where the CSV is required. <br> 
+But, since the Railway deployment platform free version doesn't support the use of shared volume, the deployed project won't work 100%. <br>
+So, for 100% working, please run locally in your system for perfect output, i.e the use of celery and redis in my project.
