@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product Importer</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+      }
+      #progress,
+      #delete-status {
+        margin-top: 15px;
+        padding: 10px;
+        font-weight: bold;
+      }
+      button {
+        padding: 10px 20px;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+      #delete-all-btn {
+        background-color: red;
+        color: white;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="padding: 15px; background: #333; color: white; margin-bottom: 20px"
+    >
+      <a href="/" style="color: white; margin-right: 20px">Upload</a>
+      <a href="/products-page" style="color: white; margin-right: 20px"
+        >Products</a
+      >
+      <a href="/webhooks-page" style="color: white">Webhooks</a>
+    </div>
+
+    <h2>Upload Products CSV</h2>
+
+    <form id="upload-form">
+      <input type="file" id="file-input" accept=".csv" required />
+      <button type="submit">Upload</button>
+    </form>
+
+    <div id="status"></div>
+    <div id="progress"></div>
+
+    <hr />
+
+    <h3>Want to Delete All the products ?</h3>
+    <button id="delete-all-btn">DELETE ALL PRODUCTS</button>
+    <div id="delete-status"></div>
+
+    <script src="/static/js/upload.js"></script>
+  </body>
+</html>

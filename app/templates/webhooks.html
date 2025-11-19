@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Webhooks</title>
+    <style>
+      body {
+        font-family: Arial;
+        margin: 30px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid #444;
+      }
+      th,
+      td {
+        padding: 10px;
+      }
+      input {
+        padding: 8px;
+        margin: 5px;
+        width: 300px;
+      }
+      button {
+        padding: 8px 15px;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="padding: 15px; background: #333; color: white; margin-bottom: 20px"
+    >
+      <a href="/" style="color: white; margin-right: 20px">Upload</a>
+      <a href="/products-page" style="color: white; margin-right: 20px"
+        >Products</a
+      >
+      <a href="/webhooks-page" style="color: white">Webhooks</a>
+    </div>
+
+    <h2>Manage Webhooks</h2>
+
+    <div>
+      <input id="url" placeholder="Webhook URL" />
+      <input id="event" placeholder="Event type" />
+      <button onclick="createWebhook()">Add Webhook</button>
+    </div>
+
+    <table id="webhook-table">
+      <thead>
+        <tr>
+          <th>URL</th>
+          <th>Event</th>
+          <th>Enabled</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script src="/static/js/webhooks.js"></script>
+  </body>
+</html>

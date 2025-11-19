@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Products</title>
+    <style>
+      body {
+        font-family: Arial;
+        margin: 30px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+      }
+      th,
+      td {
+        border: 1px solid #444;
+        padding: 8px;
+      }
+      input,
+      button {
+        padding: 7px;
+      }
+      #form-container {
+        display: none;
+        border: 1px solid #aaa;
+        padding: 15px;
+        width: 350px;
+        margin-top: 20px;
+      }
+      .actions button {
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="padding: 15px; background: #333; color: white; margin-bottom: 20px"
+    >
+      <a href="/" style="color: white; margin-right: 20px">Upload</a>
+      <a href="/products-page" style="color: white; margin-right: 20px"
+        >Products</a
+      >
+      <a href="/webhooks-page" style="color: white">Webhooks</a>
+    </div>
+
+    <h2>Product Manager</h2>
+
+    <button onclick="showCreateForm()">+ Create Product</button>
+
+    <div id="form-container">
+      <h3 id="form-title">Create Product</h3>
+
+      <input id="sku" placeholder="SKU" /><br /><br />
+      <input id="name" placeholder="Name" /><br /><br />
+      <input id="description" placeholder="Description" /><br /><br />
+      <input id="price" placeholder="Price" type="number" /><br /><br />
+
+      <button onclick="submitForm()">Submit</button>
+      <button onclick="hideForm()">Cancel</button>
+    </div>
+
+    <input id="search-box" placeholder="Search" />
+    <button onclick="loadProducts()">Search</button>
+
+    <table id="product-table">
+      <thead>
+        <tr>
+          <th>SKU</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Active</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script src="/static/js/products.js"></script>
+  </body>
+</html>
