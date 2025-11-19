@@ -1,5 +1,9 @@
+import os
+
 from celery import Celery
 from app.config import settings
+
+os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
 
 celery_app = Celery(
     "product_importer",
