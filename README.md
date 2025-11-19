@@ -60,7 +60,7 @@ uvicorn app.main:app --reload
 https://product-importer-production-5616.up.railway.app/
 ```
 
-Note - 
+***Note*** - <br>
 It is deployed on the Railway platform. <br>
 In my code, I save the uploaded CSV in a folder and then use it for Celery and other places where the CSV is required. <br> 
 But, since the Railway deployment platform free version doesn't support the use of shared volume, the deployed project won't work 100%. <br>
