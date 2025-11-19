@@ -1,15 +1,57 @@
-# Product Importer (FastAPI + Celery)
+# Product Importer – FastAPI + Celery + Redis
 
-## Stack
-- FastAPI (API + HTML templates)
-- Celery (async workers)
-- Redis (broker + progress tracking)
-- PostgreSQL + SQLAlchemy
-- Jinja2 templates
+A backend system that supports **large CSV product imports**, background processing, progress tracking, and full product management through a simple web interface.
 
-## Run (local)
+---
 
-1. Create virtualenv and install deps:
+## Tech Stack
 
-```bash
+- **FastAPI** — Web API framework  
+- **Celery** — Async background task queue  
+- **Redis** — Message broker + progress storage  
+- **PostgreSQL** — Database  
+- **SQLAlchemy** — ORM  
+- **Jinja2 + HTML/JS** — Frontend templates  
+
+---
+
+## How to Run the Project (Local Setup)
+
+### 1️⃣ Clone the repository
+```sh
+git clone <repo-url>
+cd product-importer
+```
+### 2️⃣ Create a virtual environment (Windows)
+```sh
+python -m venv venv
+venv\Scripts\activate   
+```
+### 3️⃣ Install dependencies
+```sh
 pip install -r requirements.txt
+```
+### 4️⃣ Create .env file in project root like this (this is my .env, it won't work in yours, so keep it similar to this)
+```sh
+DATABASE_URL = postgresql://postgres:lylGpRTcbmuwBeGEutusDSePSSzEjAyZ@postgres.railway.internal:5432/railway
+REDIS_URL = redis://default:FYCOZdQ4Ls4IVSomBo2lAHIzPzXZkqmQ@redis-19529.c301.ap-south-1-1.ec2.cloud.redislabs.com:19529
+SECRET_KEY = mysecret123
+UPLOAD_DIR = uploads
+```
+### 5️⃣ Setup PostgreSQL database
+```sh
+psql -U postgres
+CREATE DATABASE product_importer;
+```
+### 6️⃣ Start Redis
+```sh
+redis-server
+```
+### 7️⃣ Start Celery worker
+```sh
+celery -A app.workers.celery_app worker --loglevel=info --pool=solo
+```
+### 8️⃣ Start FastAPI server
+```sh
+uvicorn app.main:app --reload
+```
